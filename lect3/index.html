@@ -29,8 +29,36 @@
         //methods of array
         let arr =[1,2,3,4,5];
         console.log(arr.length);
-        arr.push(6);
-        arr.pop()
+        arr.push(6);    //adds an element at the end of the array
+        arr.pop();      //removes the last element of the array
+        arr.unshift(6);   //adds an element at the beginning of the array
+        arr.shift();      //removes the first element of the array
+        console.log(arr.includes(3, "kyaaaa"));   // gives true if the element is present in the array, otherwise false
+        arr.indexOf(3);    //gives the index of the element in the array, if the element is not present in the array, it gives -1
+        let data = arr.find((element) => element > 3);   //gives the first element that satisfies the condition, if no element satisfies the condition, it gives undefined
+        console.log(data);
+
+        //forEach method
+        arr.forEach((a,b,c) => {
+            console.log(a,b,c, "forEach");  //a is the element, b is the index, c is the array
+            //return a
+        });
+
+    
+        //map method
+        let arr1 = arr.map((a,b,c) => {  //a is the element, b is the index, c is the array
+            return a*2;   //gives a new array with the elements that satisfy the condition
+        });
+        console.log(arr1);
+
+        //differnce between forEach and map is that forEach does not return anything, it just executes the function for each element of the array, whereas map returns a new array with the elements that satisfy the condition.
+
+        // filter method  same  as map
+        let arr2 = arr.filter((a,b,c) => {  //a is the element, b is the index, c is the array
+            return a > 3;   //gives a new array with the elements that satisfy the condition
+        });
+        console.log(arr2);
+
     </script>
 </body>
 </html>
