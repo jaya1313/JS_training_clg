@@ -59,6 +59,27 @@
         });
         console.log(arr2);
 
+        //reduce method
+        let sum = arr.reduce((a,b,c,d) => { 
+            console.log(a, "mai a hu")
+            console.log(b, "mai b hu")
+            return a+b;   //gives a single value that is the result of the reduction of the array
+
+          },10)  //acc is the accumulator
+        console.log(sum);
+        
+        //Ques
+        let arr3=[1,2,3,5,53,6,3,6,3,345,2];
+        let arr4=arr3.filter((a) =>{
+            return a>2;
+        })
+        let arr5 = arr4.filter((a)=>{
+            return a%2==0;
+        })
+        let sum2= arr5.reduce((a,b) =>{
+            return a+b;
+        },0)
+        console.log(sum2);
     </script>
 </body>
 </html>
