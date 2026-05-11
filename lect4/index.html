@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Your JavaScript code here
+
+        console.log(this);  //prints the window object
+
+        {
+            //it is a block having its own rules and scope
+            var a =10;
+            let b = 30;
+            const c = 40;
+        }
+        console.log(a);  // can be accible hence ans is 10
+        console.log(b);  // cannot be accible hence ans is ReferenceError: b is not defined
+        console.log(c);  // cannot be accible hence ans is ReferenceError: c is not defined
+
+        if(true){
+            var a=20;
+            let b=30;
+            const c=40;
+        }else{
+            console.log("Hello");   // when if goes false this will execute
+            console.log(a);         // can be accible hence ans is 20
+            console.log(b);         // cannot be accible hence ans is ReferenceError: b is not defined
+            console.log(c);         // cannot be accible hence ans is ReferenceError: c is not defined
+        }
+        console.log(a);  // can be accible hence ans is 20
+        console.log(b);  // cannot be accible hence ans is ReferenceError: b is not defined
+
+        // functions
+        function sum(){
+            let a=10;
+            var b=10;
+            const c=13;
+        }
+        console.log(a);   //cannot be accible hence ans is ReferenceError: a is not defined
+        console.log(b);   //cannot be accible hence ans is ReferenceError: b is not defined
+        console.log(c);
+
+        sum();
+
+        //objects
+        let student = {
+            id: 1,
+            name: "john",
+            isPass: true,
+            sum: function(){
+                console.log("hello");
+                console.log(this)     //prints the student object
+            }
+        }
+        student.sum();   //prints hello and the student object
+        for(let key in student){
+            console.log(key);   //prints the keys of the student object
+            console.log(student[key]);  //prints the values of the student object
+        }
+
+    </script>
+</body>
+</html>
