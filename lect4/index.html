@@ -11,56 +11,101 @@
 
         console.log(this);  //prints the window object
 
-        {
-            //it is a block having its own rules and scope
-            var a =10;
-            let b = 30;
-            const c = 40;
-        }
-        console.log(a);  // can be accible hence ans is 10
-        console.log(b);  // cannot be accible hence ans is ReferenceError: b is not defined
-        console.log(c);  // cannot be accible hence ans is ReferenceError: c is not defined
+        // {
+        //     //it is a block having its own rules and scope
+        //     var a =10;
+        //     let b = 30;
+        //     const c = 40;
+        // }
+        // console.log(a);  // can be accible hence ans is 10
+        // console.log(b);  // cannot be accible hence ans is ReferenceError: b is not defined
+        // console.log(c);  // cannot be accible hence ans is ReferenceError: c is not defined
 
-        if(true){
-            var a=20;
-            let b=30;
-            const c=40;
-        }else{
-            console.log("Hello");   // when if goes false this will execute
-            console.log(a);         // can be accible hence ans is 20
-            console.log(b);         // cannot be accible hence ans is ReferenceError: b is not defined
-            console.log(c);         // cannot be accible hence ans is ReferenceError: c is not defined
-        }
-        console.log(a);  // can be accible hence ans is 20
-        console.log(b);  // cannot be accible hence ans is ReferenceError: b is not defined
+        // if(true){
+        //     var a=20;
+        //     let b=30;
+        //     const c=40;
+        // }else{
+        //     console.log("Hello");   // when if goes false this will execute
+        //     console.log(a);         // can be accible hence ans is 20
+        //     console.log(b);         // cannot be accible hence ans is ReferenceError: b is not defined
+        //     console.log(c);         // cannot be accible hence ans is ReferenceError: c is not defined
+        // }
+        // console.log(a);  // can be accible hence ans is 20
+        // console.log(b);  // cannot be accible hence ans is ReferenceError: b is not defined
 
-        // functions
+        // // functions
+        // function sum(){
+        //     let a=10;
+        //     var b=10;
+        //     const c=13;
+        // }
+        // console.log(a);   //cannot be accible hence ans is ReferenceError: a is not defined
+        // console.log(b);   //cannot be accible hence ans is ReferenceError: b is not defined
+        // console.log(c);
+
+        // sum();
+
+        // //objects
+        // let student = {
+        //     id: 1,
+        //     name: "john",
+        //     isPass: true,
+        //     sum: function(){
+        //         console.log("hello");
+        //         console.log(this)     //prints the student object
+        //     }
+        // }
+        // student.sum();   //prints hello and the student object
+        // for(let key in student){
+        //     console.log(key);   //prints the keys of the student object
+        //     console.log(student[key]);  //prints the values of the student object
+        // }
+
+        //it is used in security purposes.
+        'use strict';   //it is a directive that tells the browser to use strict mode, in strict mode, the this keyword points to undefined instead of the global object
         function sum(){
-            let a=10;
-            var b=10;
-            const c=13;
+            console.log(this);  //normally it points the global variable "window" but in strict mode it points to undefined
         }
-        console.log(a);   //cannot be accible hence ans is ReferenceError: a is not defined
-        console.log(b);   //cannot be accible hence ans is ReferenceError: b is not defined
-        console.log(c);
-
         sum();
 
-        //objects
+        var id =20;
+        let student1 = {
+            id: 1,
+            name: "john",
+            isPass: true,
+            sum:function(){
+                console.log(this.id)  //it points to student1 object hence ans is 1
+            }
+        }
+        student1.sum();
+
+        //now using this keyword in an object under the arrow function
+        var id =20;
         let student = {
             id: 1,
             name: "john",
             isPass: true,
-            sum: function(){
-                console.log("hello");
-                console.log(this)     //prints the student object
+            sum:()=>{
+                console.log(this.id)  //ans is 20 //this does not work in arrow functions,henceit points the global object(window)
             }
         }
         student.sum();   //prints hello and the student object
-        for(let key in student){
-            console.log(key);   //prints the keys of the student object
-            console.log(student[key]);  //prints the values of the student object
+
+        //nested functions
+        var id =20;
+        let student2 = {
+            id: 1,
+            name: "john",
+            isPass: true,
+            sum:function(){
+                s=() =>{
+                    console.log(this.id) //ans is 1 //this does not work in arrow functions,hence it points the student2 object because it is the parent function of s() and it is not an arrow function
+                }
+                s();  
+            }
         }
+        student2.sum();
 
     </script>
 </body>
