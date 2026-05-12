@@ -28,3 +28,25 @@
 //     allData.push(data);
 //     h3.innerHTML = allData
 // })
+
+
+let inp = document.querySelector("input");
+let buttons = document.querySelectorAll("button");
+
+for(let btn of buttons){
+    let btnText = btn.innerText;
+    btn.addEventListener("click",()=>{
+        if(btnText === "C"){
+            inp.value = "";
+        }
+        else if(btnText === "="){
+            inp.value = eval(inp.value);
+        }
+        else if(btnText === "Del"){
+            inp.value = inp.value.slice(0, -1);
+        }
+        else{
+            inp.value = inp.value + btnText;
+        }
+    })
+}
