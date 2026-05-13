@@ -7,7 +7,57 @@
 </head>
 <body>
     <script>
-        
+
+        //syncronisation progrraming 
+        //problem 
+        function step1(fn){
+            setTimeout(()=>{
+                console.log("photo selected");
+                fn();
+            },5000);
+            
+        }
+
+        function step2(fn){
+            setTimeout(()=>{
+                console.log("captions added");
+                fn();
+            },4000);
+            
+        }
+
+        function step3(fn){
+            setTimeout(()=>{
+                console.log("filters added");
+                fn();
+            },3000);
+            
+        }
+
+        function step4(){
+            setTimeout(()=>{
+                console.log("post created");
+            },2000);
+        }
+
+        // step1();
+        // step2();
+        // step3();
+        // step4();
+
+        //solution
+        //with a different function call
+        //using callback function
+
+        step1(function (){
+            step2(function(){
+                step3(function(){
+                    step4();
+                })
+
+            })
+        })
+
     </script>
 </body>
 </html>
